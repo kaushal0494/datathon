@@ -1,79 +1,196 @@
-<!doctype html>
-<html>
-  <head>
-    <!-- Page setup -->
-    <meta charset="utf-8">
-    <title>Your title here</title>
-    <meta name="description" content="A brief description of your site for search engines">
-    <meta name="author" content="Information about the author here">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <link rel="icon" type="image/png" href="favicon.png">
-  
-    <!-- Stylesheets -->
-    <!-- Reset default styles and add support for google fonts -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" type="text/css" />
-    <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
-   
-    <!-- Custom styles -->
-    <link href="style.css" rel="stylesheet" type="text/css" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shared Task 2025 - Task Title</title>
+  <meta name="description" content="Official page for the 2025 Shared Task on XYZ">
+  <meta name="author" content="Shared Task Organizers">
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>    
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
-    <!-- Want to add Bootstrap? -->
-    <!-- Visit: https://getbootstrap.com/docs/4.3/getting-started/introduction/ -->
-    
-  </head>
-  
-  <body>
+  <!-- CSS -->
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      color: #333;
+      line-height: 1.6;
+    }
 
-    <header id="header">
-      <img src="logo.png">
-      <h1>Simple Website</h1>
-      
-      <!-- Menu link fragment #id should match a div id. Example: <a href="#home"> links to <div id="home"></div>  -->
-      <ul class="main-menu">
-        <li><a href="#home">home</a></li>
-        <li><a href="#about">about</a></li>
-        <li><a href="#contact">contact</a></li>
-      </ul>                 
-    </header>
-   
-    <div id="container">
-      <div class="inner">
-        <div id="content"> 
-          
-          <div id="home" class="content-region hide">
-            <h2>Home</h2>
-            <p>
-              This is a simple website template published with Github Pages. <a href="https://github.com/zirafa/simple-website-template">Fork this repository</a> to create your own site!
-            </p>
-          </div>
-          
-          <div id="about" class="content-region hide">
-            <h2>About</h2>
-            <p>
-              Sed tempus urna et pharetra pharetra massa massa ultricies. Porttitor rhoncus dolor purus non enim praesent. Id aliquet risus feugiat in ante metus dictum. 
-            </p>
-          </div>
-          
-          <div id="contact" class="content-region hide">
-            <h2>Contact</h2>
-            <p>
-              Pellentesque nec nam aliquam sem et tortor consequat. Quisque sagittis purus sit amet volutpat consequat. Magna eget est lorem ipsum dolor. 
-            </p>
-          </div>
-          
-        </div>
-      </div>
+    header {
+      background-color: #004080;
+      color: white;
+      padding: 20px 40px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    nav {
+      background-color: #f4f4f4;
+      padding: 10px 40px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    nav a {
+      margin-right: 15px;
+      color: #004080;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .section {
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section h2 {
+      border-bottom: 2px solid #004080;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .organizers {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .organizer {
+      width: 150px;
+      text-align: center;
+    }
+
+    .organizer img {
+      width: 100%;
+      border-radius: 50%;
+    }
+
+    table.timeline {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table.timeline td, table.timeline th {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    footer {
+      background-color: #f4f4f4;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #666;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Shared Task 2025: Understanding XYZ</h1>
+</header>
+
+<nav>
+  <a href="#announcement">Announcement</a>
+  <a href="#organizers">Organizers</a>
+  <a href="#task">Task Details</a>
+  <a href="#timeline">Timeline</a>
+  <a href="#dataset">Dataset</a>
+  <a href="#evaluation">Evaluation</a>
+  <a href="#citation">Citation</a>
+</nav>
+
+<section id="announcement" class="section">
+  <h2>Announcement</h2>
+  <p>We are pleased to announce the Shared Task on <strong>XYZ</strong> as part of ABC Conference 2025. The goal of this task is to benchmark state-of-the-art methods for XYZ using real-world annotated datasets.</p>
+</section>
+
+<section id="organizers" class="section">
+  <h2>Organizers</h2>
+  <div class="organizers">
+    <div class="organizer">
+      <img src="org1.jpg" alt="Organizer 1" />
+      <p>Dr. Alice Smith</p>
     </div>
+    <div class="organizer">
+      <img src="org2.jpg" alt="Organizer 2" />
+      <p>Prof. Bob Kumar</p>
+    </div>
+    <!-- Add more as needed -->
+  </div>
+</section>
 
-    <footer>  
-      Footer region
-    </footer>
-    
-    <!-- Load additional JS scripts here -->
-    <script type="text/javascript" src="script.js"></script>
-    
-  </body>
+<section id="task" class="section">
+  <h2>Task Details</h2>
+  <p>The task involves identifying XYZ patterns in multilingual texts. Participants are expected to build systems capable of handling diverse linguistic features. The sub-tasks include:</p>
+  <ul>
+    <li>Subtask 1: Classification of ABC</li>
+    <li>Subtask 2: Extraction of DEF</li>
+  </ul>
+</section>
+
+<section id="timeline" class="section">
+  <h2>Timeline</h2>
+  <table class="timeline">
+    <tr><th>Event</th><th>Date</th></tr>
+    <tr><td>Task Announcement</td><td>Jan 15, 2025</td></tr>
+    <tr><td>Data Release</td><td>Feb 1, 2025</td></tr>
+    <tr><td>Submission Deadline</td><td>Apr 30, 2025</td></tr>
+    <tr><td>Results Notification</td><td>May 15, 2025</td></tr>
+    <tr><td>Paper Submission</td><td>June 1, 2025</td></tr>
+  </table>
+</section>
+
+<section id="dataset" class="section">
+  <h2>Example Datasets</h2>
+  <p>Sample datasets will be provided in JSON and CSV formats. Below are a few examples:</p>
+  <pre>
+{
+  "id": "001",
+  "text": "The quick brown fox jumps over the lazy dog.",
+  "label": "Positive"
+}
+  </pre>
+  <p>More examples and full data will be available on the <a href="#">GitHub repository</a>.</p>
+</section>
+
+<section id="evaluation" class="section">
+  <h2>Evaluation</h2>
+  <p>Systems will be evaluated using the following metrics:</p>
+  <ul>
+    <li>Accuracy</li>
+    <li>F1-Score (macro & micro)</li>
+    <li>Precision and Recall</li>
+  </ul>
+  <p>A leaderboard will be maintained throughout the competition.</p>
+</section>
+
+<section id="citation" class="section">
+  <h2>Citation</h2>
+  <p>Please cite the shared task as follows:</p>
+  <pre>
+@inproceedings{sharedtask2025,
+  title={Shared Task on XYZ},
+  author={Smith, Alice and Kumar, Bob},
+  booktitle={Proceedings of ABC 2025},
+  year={2025}
+}
+  </pre>
+</section>
+
+<footer>
+  &copy; 2025 Shared Task on XYZ. All rights reserved.
+</footer>
+
+</body>
 </html>
