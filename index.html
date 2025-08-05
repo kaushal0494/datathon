@@ -135,6 +135,42 @@
       color: #666;
       margin-top: 40px;
     }
+
+     .people-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+}
+
+.person {
+  width: 180px;
+}
+
+.person img {
+  width: 100%;
+  height: auto;
+  border-radius: 0; /* No circle */
+  object-fit: cover;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.person p {
+  margin-top: 10px;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+.person span {
+  display: block;
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 3px;
+}
+    
   </style>
 </head>
 <body>
@@ -170,16 +206,16 @@
   <h2><i class="fas fa-users"></i> Organizers</h2>
   <div class="people-grid">
     <div class="person">
-      <img src="kaushalkumar.jpeg" alt="Kaushal Kumar Maurya (MBZUAI)" />
-      <p>Kaushal Kumar Maurya (MBZUAI)/p>
+      <img src="kaushalkumar.jpeg" alt="Kaushal Kumar Maurya" />
+      <p><strong>Kaushal Kumar Maurya</strong><br><span>MBZUAI</span></p>
     </div>
     <div class="person">
-      <img src="mahesh.jpg" alt="Mahesh Mohan (IIT Kharagpur)" />
-      <p>Mahesh Mohan (IIT Kharagpur)</p>
+      <img src="mahesh.jpg" alt="Mahesh Mohan" />
+      <p><strong>Mahesh Mohan</strong><br><span>IIT Kharagpur</span></p>
     </div>
-      <div class="person">
-      <img src="aritra-mukherjee.jpg" alt="Aritra Mukherjee (BITS Pilani, Hyderabad Campus)" />
-      <p>Aritra Mukherjee (BITS Pilani, Hyderabad Campus)</p>
+    <div class="person">
+      <img src="aritra-mukherjee.jpg" alt="Aritra Mukherjee" />
+      <p><strong>Aritra Mukherjee</strong><br><span>BITS Pilani, Hyderabad Campus</span></p>
     </div>
   </div>
 </section>
