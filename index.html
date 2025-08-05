@@ -22,62 +22,19 @@
       scroll-behavior: smooth;
     }
 
-    /* === Sticky elements === */
+    /* Sticky Header Container */
+    #sticky-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
     header {
       background-color: #004080;
       color: white;
       padding: 20px 40px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .prize-banner {
-      background-color: #ffcc00;
-      color: #000;
-      text-align: center;
-      padding: 15px;
-      font-size: 1.25em;
-      font-weight: bold;
-      position: sticky;
-      top: 80px; /* Height of header */
-      z-index: 999;
-    }
-
-    nav {
-      background-color: #f4f4f4;
-      padding: 10px 40px;
-      border-bottom: 1px solid #ddd;
-      position: sticky;
-      top: 125px; /* header (80px) + prize (45px) */
-      z-index: 998;
-    }
-
-    nav a {
-      margin-right: 15px;
-      color: #004080;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    /* === Section content === */
-    .section {
-      padding: 40px;
-      max-width: 900px;
-      margin: auto;
-      scroll-margin-top: 190px; /* total sticky height: 80 + 45 + nav ~65 */
-    }
-
-    .section h2 {
-      border-bottom: 2px solid #004080;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-      font-size: 1.5em;
-    }
-
-    .section h2 i {
-      color: #004080;
-      margin-right: 10px;
     }
 
     .header-flex {
@@ -95,6 +52,47 @@
 
     .header-flex img {
       height: 60px;
+    }
+
+    .prize-banner {
+      background-color: #ffcc00;
+      color: #000;
+      text-align: center;
+      padding: 15px;
+      font-size: 1.25em;
+      font-weight: bold;
+    }
+
+    nav {
+      background-color: #f4f4f4;
+      padding: 10px 40px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    nav a {
+      margin-right: 15px;
+      color: #004080;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .section {
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+      scroll-margin-top: 210px; /* full height of sticky header */
+    }
+
+    .section h2 {
+      border-bottom: 2px solid #004080;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+    }
+
+    .section h2 i {
+      color: #004080;
+      margin-right: 10px;
     }
 
     .people-grid {
@@ -141,29 +139,33 @@
 </head>
 <body>
 
-<header>
-  <div class="header-flex">
-    <img src="indoml_logo.png" alt="IndoML Logo">
-    <h1>Shared Task 2025: Understanding XYZ</h1>
-    <img src="datathon_logo.png" alt="DataThon Logo">
-  </div>
-</header>
+<!-- Sticky Header -->
+<div id="sticky-header">
+  <header>
+    <div class="header-flex">
+      <img src="indoml_logo.png" alt="IndoML Logo">
+      <h1>Shared Task 2025: Understanding XYZ</h1>
+      <img src="datathon_logo.png" alt="DataThon Logo">
+    </div>
+  </header>
 
-<div class="prize-banner">
-  💰 Exciting Prize Alert: Win a total of ₹2,00,000 INR in cash prizes!
+  <div class="prize-banner">
+    💰 Exciting Prize Alert: Win a total of ₹2,00,000 INR in cash prizes!
+  </div>
+
+  <nav>
+    <a href="#organizers"><i class="fas fa-users"></i> Organizers</a>
+    <a href="#announcement"><i class="fas fa-bullhorn"></i> Announcement</a>
+    <a href="#task"><i class="fas fa-tasks"></i> Task Details</a>
+    <a href="#timeline"><i class="fas fa-calendar-alt"></i> Timeline</a>
+    <a href="#dataset"><i class="fas fa-database"></i> Dataset</a>
+    <a href="#evaluation"><i class="fas fa-chart-line"></i> Evaluation</a>
+    <a href="#volunteers"><i class="fas fa-hand-holding-heart"></i> Volunteers</a>
+    <a href="#citation"><i class="fas fa-book"></i> Citation</a>
+  </nav>
 </div>
 
-<nav>
-  <a href="#organizers"><i class="fas fa-users"></i> Organizers</a>
-  <a href="#announcement"><i class="fas fa-bullhorn"></i> Announcement</a>
-  <a href="#task"><i class="fas fa-tasks"></i> Task Details</a>
-  <a href="#timeline"><i class="fas fa-calendar-alt"></i> Timeline</a>
-  <a href="#dataset"><i class="fas fa-database"></i> Dataset</a>
-  <a href="#evaluation"><i class="fas fa-chart-line"></i> Evaluation</a>
-  <a href="#volunteers"><i class="fas fa-hand-holding-heart"></i> Volunteers</a>
-  <a href="#citation"><i class="fas fa-book"></i> Citation</a>
-</nav>
-
+<!-- Sections -->
 <section id="organizers" class="section">
   <h2><i class="fas fa-users"></i> Organizers</h2>
   <div class="people-grid">
