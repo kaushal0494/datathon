@@ -26,6 +26,9 @@
       background-color: #004080;
       color: white;
       padding: 20px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .header-flex {
@@ -52,6 +55,9 @@
       padding: 15px;
       font-size: 1.25em;
       font-weight: bold;
+      position: sticky;
+      top: 80px; /* adjust based on actual header height */
+      z-index: 999;
     }
 
     nav {
@@ -71,6 +77,7 @@
       padding: 40px;
       max-width: 900px;
       margin: auto;
+      scroll-margin-top: 160px; /* header + banner height */
     }
 
     .section h2 {
