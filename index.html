@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shared Task 2025 - Task Title</title>
+  <title>Shared Task 2025 - Understanding XYZ</title>
   <meta name="description" content="Official page for the 2025 Shared Task on XYZ">
   <meta name="author" content="Shared Task Organizers">
 
@@ -19,6 +19,7 @@
       background-color: white;
       color: #333;
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
     header {
@@ -58,18 +59,18 @@
       margin-bottom: 20px;
     }
 
-    .organizers {
+    .people-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
     }
 
-    .organizer {
+    .person {
       width: 150px;
       text-align: center;
     }
 
-    .organizer img {
+    .person img {
       width: 100%;
       border-radius: 50%;
     }
@@ -92,6 +93,12 @@
       color: #666;
       margin-top: 40px;
     }
+
+    pre {
+      background-color: #f9f9f9;
+      padding: 10px;
+      overflow-x: auto;
+    }
   </style>
 </head>
 <body>
@@ -101,33 +108,34 @@
 </header>
 
 <nav>
-  <a href="#announcement">Announcement</a>
   <a href="#organizers">Organizers</a>
+  <a href="#announcement">Announcement</a>
   <a href="#task">Task Details</a>
   <a href="#timeline">Timeline</a>
   <a href="#dataset">Dataset</a>
   <a href="#evaluation">Evaluation</a>
+  <a href="#volunteers">Volunteers</a>
   <a href="#citation">Citation</a>
 </nav>
+
+<section id="organizers" class="section">
+  <h2>Organizers</h2>
+  <div class="people-grid">
+    <div class="person">
+      <img src="org1.jpg" alt="Dr. Alice Smith" />
+      <p>Dr. Alice Smith</p>
+    </div>
+    <div class="person">
+      <img src="org2.jpg" alt="Prof. Bob Kumar" />
+      <p>Prof. Bob Kumar</p>
+    </div>
+    <!-- Add more organizers here -->
+  </div>
+</section>
 
 <section id="announcement" class="section">
   <h2>Announcement</h2>
   <p>We are pleased to announce the Shared Task on <strong>XYZ</strong> as part of ABC Conference 2025. The goal of this task is to benchmark state-of-the-art methods for XYZ using real-world annotated datasets.</p>
-</section>
-
-<section id="organizers" class="section">
-  <h2>Organizers</h2>
-  <div class="organizers">
-    <div class="organizer">
-      <img src="org1.jpg" alt="Organizer 1" />
-      <p>Dr. Alice Smith</p>
-    </div>
-    <div class="organizer">
-      <img src="org2.jpg" alt="Organizer 2" />
-      <p>Prof. Bob Kumar</p>
-    </div>
-    <!-- Add more as needed -->
-  </div>
 </section>
 
 <section id="task" class="section">
@@ -173,6 +181,21 @@
     <li>Precision and Recall</li>
   </ul>
   <p>A leaderboard will be maintained throughout the competition.</p>
+</section>
+
+<section id="volunteers" class="section">
+  <h2>Volunteers</h2>
+  <div class="people-grid">
+    <div class="person">
+      <img src="vol1.jpg" alt="Jane Doe" />
+      <p>Jane Doe</p>
+    </div>
+    <div class="person">
+      <img src="vol2.jpg" alt="John Smith" />
+      <p>John Smith</p>
+    </div>
+    <!-- Add more volunteers as needed -->
+  </div>
 </section>
 
 <section id="citation" class="section">
