@@ -7,10 +7,10 @@
   <meta name="description" content="Official page for the 2025 Shared Task on XYZ">
   <meta name="author" content="Shared Task Organizers">
 
-  <!-- Google Font -->
+  <!-- Fonts and Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-  <!-- CSS -->
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -26,12 +26,32 @@
       background-color: #004080;
       color: white;
       padding: 20px 40px;
-      text-align: center;
     }
 
-    header h1 {
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-flex h1 {
+      flex: 1;
+      text-align: center;
+      font-size: 2em;
       margin: 0;
-      font-size: 2.5em;
+    }
+
+    .header-flex img {
+      height: 60px;
+    }
+
+    .prize-banner {
+      background-color: #ffcc00;
+      color: #000;
+      text-align: center;
+      padding: 15px;
+      font-size: 1.25em;
+      font-weight: bold;
     }
 
     nav {
@@ -57,6 +77,12 @@
       border-bottom: 2px solid #004080;
       padding-bottom: 10px;
       margin-bottom: 20px;
+      font-size: 1.5em;
+    }
+
+    .section h2 i {
+      color: #004080;
+      margin-right: 10px;
     }
 
     .people-grid {
@@ -85,6 +111,12 @@
       padding: 10px;
     }
 
+    pre {
+      background-color: #f9f9f9;
+      padding: 10px;
+      overflow-x: auto;
+    }
+
     footer {
       background-color: #f4f4f4;
       text-align: center;
@@ -93,33 +125,35 @@
       color: #666;
       margin-top: 40px;
     }
-
-    pre {
-      background-color: #f9f9f9;
-      padding: 10px;
-      overflow-x: auto;
-    }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Shared Task 2025: Understanding XYZ</h1>
+  <div class="header-flex">
+    <img src="indoml_logo.png" alt="IndoML Logo">
+    <h1>Shared Task 2025: Understanding XYZ</h1>
+    <img src="datathon_logo.png" alt="DataThon Logo">
+  </div>
 </header>
 
+<div class="prize-banner">
+  💰 Exciting Prize Alert: Win a total of ₹2,00,000 INR in cash prizes!
+</div>
+
 <nav>
-  <a href="#organizers">Organizers</a>
-  <a href="#announcement">Announcement</a>
-  <a href="#task">Task Details</a>
-  <a href="#timeline">Timeline</a>
-  <a href="#dataset">Dataset</a>
-  <a href="#evaluation">Evaluation</a>
-  <a href="#volunteers">Volunteers</a>
-  <a href="#citation">Citation</a>
+  <a href="#organizers"><i class="fas fa-users"></i> Organizers</a>
+  <a href="#announcement"><i class="fas fa-bullhorn"></i> Announcement</a>
+  <a href="#task"><i class="fas fa-tasks"></i> Task Details</a>
+  <a href="#timeline"><i class="fas fa-calendar-alt"></i> Timeline</a>
+  <a href="#dataset"><i class="fas fa-database"></i> Dataset</a>
+  <a href="#evaluation"><i class="fas fa-chart-line"></i> Evaluation</a>
+  <a href="#volunteers"><i class="fas fa-hand-holding-heart"></i> Volunteers</a>
+  <a href="#citation"><i class="fas fa-book"></i> Citation</a>
 </nav>
 
 <section id="organizers" class="section">
-  <h2>Organizers</h2>
+  <h2><i class="fas fa-users"></i> Organizers</h2>
   <div class="people-grid">
     <div class="person">
       <img src="org1.jpg" alt="Dr. Alice Smith" />
@@ -129,17 +163,17 @@
       <img src="org2.jpg" alt="Prof. Bob Kumar" />
       <p>Prof. Bob Kumar</p>
     </div>
-    <!-- Add more organizers here -->
+    <!-- Add more organizers -->
   </div>
 </section>
 
 <section id="announcement" class="section">
-  <h2>Announcement</h2>
+  <h2><i class="fas fa-bullhorn"></i> Announcement</h2>
   <p>We are pleased to announce the Shared Task on <strong>XYZ</strong> as part of ABC Conference 2025. The goal of this task is to benchmark state-of-the-art methods for XYZ using real-world annotated datasets.</p>
 </section>
 
 <section id="task" class="section">
-  <h2>Task Details</h2>
+  <h2><i class="fas fa-tasks"></i> Task Details</h2>
   <p>The task involves identifying XYZ patterns in multilingual texts. Participants are expected to build systems capable of handling diverse linguistic features. The sub-tasks include:</p>
   <ul>
     <li>Subtask 1: Classification of ABC</li>
@@ -148,7 +182,7 @@
 </section>
 
 <section id="timeline" class="section">
-  <h2>Timeline</h2>
+  <h2><i class="fas fa-calendar-alt"></i> Timeline</h2>
   <table class="timeline">
     <tr><th>Event</th><th>Date</th></tr>
     <tr><td>Task Announcement</td><td>Jan 15, 2025</td></tr>
@@ -160,7 +194,7 @@
 </section>
 
 <section id="dataset" class="section">
-  <h2>Example Datasets</h2>
+  <h2><i class="fas fa-database"></i> Example Datasets</h2>
   <p>Sample datasets will be provided in JSON and CSV formats. Below are a few examples:</p>
   <pre>
 {
@@ -173,7 +207,7 @@
 </section>
 
 <section id="evaluation" class="section">
-  <h2>Evaluation</h2>
+  <h2><i class="fas fa-chart-line"></i> Evaluation</h2>
   <p>Systems will be evaluated using the following metrics:</p>
   <ul>
     <li>Accuracy</li>
@@ -184,7 +218,7 @@
 </section>
 
 <section id="volunteers" class="section">
-  <h2>Volunteers</h2>
+  <h2><i class="fas fa-hand-holding-heart"></i> Volunteers</h2>
   <div class="people-grid">
     <div class="person">
       <img src="vol1.jpg" alt="Jane Doe" />
@@ -194,12 +228,12 @@
       <img src="vol2.jpg" alt="John Smith" />
       <p>John Smith</p>
     </div>
-    <!-- Add more volunteers as needed -->
+    <!-- Add more volunteers -->
   </div>
 </section>
 
 <section id="citation" class="section">
-  <h2>Citation</h2>
+  <h2><i class="fas fa-book"></i> Citation</h2>
   <p>Please cite the shared task as follows:</p>
   <pre>
 @inproceedings{sharedtask2025,
