@@ -2,17 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shared Task 2025 - Understanding XYZ</title>
   <meta name="description" content="Official page for the 2025 Shared Task on XYZ" />
   <meta name="author" content="Shared Task Organizers" />
 
   <!-- Fonts and Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 
   <style>
     body {
@@ -29,7 +26,7 @@
     #sticky-header {
       position: sticky;
       top: 0;
-      z-index: 1100;
+      z-index: 1000;
       background-color: white;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     }
@@ -51,13 +48,13 @@
       flex: 1;
       text-align: center;
       font-size: 2em;
-      margin: 0;
-      min-width: 0;
+      margin: 0 20px;
     }
 
     .header-flex img {
       height: 60px;
-      flex-shrink: 0;
+      max-width: 120px;
+      object-fit: contain;
     }
 
     .prize-banner {
@@ -71,57 +68,54 @@
 
     nav {
       background-color: #f4f4f4;
-      border-bottom: 1px solid #ddd;
-    }
-
-    nav ul {
-      list-style: none;
-      margin: 0;
       padding: 10px 40px;
+      border-bottom: 1px solid #ddd;
       display: flex;
-      gap: 15px;
-      justify-content: center;
-      flex-wrap: wrap;
+      gap: 20px;
+      overflow-x: auto;
+      white-space: nowrap;
+      justify-content: flex-start; /* Left align for desktop */
+      scrollbar-width: thin;
+      scrollbar-color: #ccc transparent;
     }
 
-    nav ul li {
-      /* no special style */
+    nav::-webkit-scrollbar {
+      height: 6px;
     }
 
-    nav ul li a {
+    nav::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+      border-radius: 3px;
+    }
+
+    nav a {
       color: #004080;
       text-decoration: none;
       font-weight: bold;
-      display: inline-block;
-      padding: 8px 12px;
-      border-radius: 4px;
-      transition: background-color 0.2s;
+      padding: 8px 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0; /* Prevent shrinking */
+      border-bottom: 3px solid transparent;
+      transition: border-color 0.3s ease;
     }
 
-    nav ul li a:hover,
-    nav ul li a:focus {
-      background-color: #004080;
-      color: white;
-      outline: none;
+    nav a:hover,
+    nav a:focus {
+      text-decoration: none;
+      border-bottom: 3px solid #004080;
     }
 
-    /* Hamburger Menu - Hidden on desktop */
-    #hamburger {
-      display: none;
-      cursor: pointer;
-      font-size: 28px;
-      color: #004080;
-      background: none;
-      border: none;
-      padding: 10px 20px;
+    nav a.active {
+      border-bottom: 3px solid #004080;
     }
 
-    /* Sections */
     .section {
-      padding: 40px 20px 60px;
+      padding: 40px;
       max-width: 900px;
       margin: auto;
-      scroll-margin-top: 180px; /* header + prize + nav height */
+      scroll-margin-top: 210px; /* full height of sticky header */
     }
 
     .section h2 {
@@ -129,14 +123,18 @@
       padding-bottom: 10px;
       margin-bottom: 20px;
       font-size: 1.5em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #004080;
     }
 
     .section h2 i {
       color: #004080;
-      margin-right: 10px;
+      font-size: 1.3em;
     }
 
-    /* Organizers */
+    /* Organizers section styling */
     .people-grid {
       display: flex;
       flex-wrap: wrap;
@@ -157,7 +155,7 @@
       object-fit: cover;
       border: 1px solid #ddd;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      border-radius: 0;
+      border-radius: 0; /* rectangular */
     }
 
     .person p {
@@ -193,7 +191,6 @@
       overflow-x: auto;
       border-radius: 4px;
       border: 1px solid #ddd;
-      font-family: monospace;
     }
 
     footer {
@@ -206,7 +203,6 @@
     }
 
     /* Responsive Styling */
-
     @media (max-width: 768px) {
       .header-flex {
         flex-wrap: wrap;
@@ -214,64 +210,68 @@
         justify-content: center;
       }
 
+      header {
+        padding: 15px 20px;
+      }
+
       .header-flex h1 {
         order: 3;
         width: 100%;
         text-align: center;
         font-size: 1.6em;
-      }
-
-      .header-flex img {
-        order: 1;
-        flex-shrink: 0;
-        height: 50px;
-      }
-
-      .prize-banner {
-        font-size: 1.1em;
-        padding: 12px 10px;
-      }
-
-      /* Hide desktop nav */
-      nav ul {
-        display: none;
-        flex-direction: column;
-        padding: 0;
         margin: 0;
       }
 
-      /* Show hamburger */
-      #hamburger {
-        display: block;
-        position: relative;
-        z-index: 1200;
-        margin: 0 40px 10px;
+      .header-flex img {
+        height: 50px;
+        max-width: 100px;
       }
 
-      /* Mobile nav dropdown */
-      nav ul.mobile-open {
-        display: flex;
-        background-color: #f4f4f4;
-        flex-direction: column;
-        gap: 0;
-        padding: 10px 40px 20px;
-        border-bottom: 1px solid #ddd;
-        animation: fadeInDown 0.3s ease forwards;
+      nav {
+        padding: 10px 20px;
+        justify-content: center;
+        gap: 10px;
       }
 
-      nav ul.mobile-open li {
-        margin: 5px 0;
+      nav a {
+        font-size: 0.9em;
+        padding: 6px 8px;
       }
 
-      nav ul.mobile-open li a {
-        display: block;
-        padding: 12px 15px;
-        font-size: 1.2em;
-        border-radius: 6px;
+      .people-grid {
+        gap: 30px;
+      }
+
+      .person {
+        width: 45%;
       }
     }
 
     @media (max-width: 480px) {
+      nav {
+        flex-direction: column;
+        gap: 8px;
+        padding: 10px 15px;
+        align-items: flex-start;
+      }
+
+      nav a {
+        display: block;
+        margin: 5px 0;
+        padding: 10px 0;
+        border-bottom: none;
+        border-left: 4px solid transparent;
+      }
+
+      nav a.active {
+        border-left-color: #004080;
+      }
+
+      .header-flex img {
+        height: 40px;
+        max-width: 80px;
+      }
+
       .person {
         width: 100%;
       }
@@ -281,25 +281,13 @@
       }
 
       .section {
-        padding: 25px 15px 50px;
-        scroll-margin-top: 150px;
-      }
-    }
-
-    /* Animation */
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+        padding: 25px 15px;
       }
     }
   </style>
 </head>
 <body>
+
   <!-- Sticky Header -->
   <div id="sticky-header">
     <header>
@@ -315,20 +303,15 @@
     </div>
 
     <nav>
-      <button id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
-        <i class="fas fa-bars"></i>
-      </button>
-      <ul id="nav-list">
-        <li><a href="#organizers"><i class="fas fa-users"></i> Organizers</a></li>
-        <li><a href="#announcement"><i class="fas fa-bullhorn"></i> Announcement</a></li>
-        <li><a href="#task"><i class="fas fa-tasks"></i> Task Details</a></li>
-        <li><a href="#timeline"><i class="fas fa-calendar-alt"></i> Timeline</a></li>
-        <li><a href="#dataset"><i class="fas fa-database"></i> Dataset</a></li>
-        <li><a href="#evaluation"><i class="fas fa-chart-line"></i> Evaluation</a></li>
-        <li><a href="#prizes"><i class="fas fa-trophy"></i> Prizes</a></li>
-        <li><a href="#volunteers"><i class="fas fa-hand-holding-heart"></i> Volunteers</a></li>
-        <li><a href="#citation"><i class="fas fa-book"></i> Citation</a></li>
-      </ul>
+      <a href="#organizers" class="active"><i class="fas fa-users"></i> Organizers</a>
+      <a href="#announcements"><i class="fas fa-bullhorn"></i> Announcements</a>
+      <a href="#task"><i class="fas fa-tasks"></i> Task Details</a>
+      <a href="#timeline"><i class="fas fa-calendar-alt"></i> Timeline</a>
+      <a href="#dataset"><i class="fas fa-database"></i> Dataset</a>
+      <a href="#evaluation"><i class="fas fa-chart-line"></i> Evaluation</a>
+      <a href="#prizes"><i class="fas fa-trophy"></i> Prizes</a>
+      <a href="#volunteers"><i class="fas fa-hand-holding-heart"></i> Volunteers</a>
+      <a href="#citation"><i class="fas fa-book"></i> Citation</a>
     </nav>
   </div>
 
@@ -351,8 +334,8 @@
     </div>
   </section>
 
-  <section id="announcement" class="section">
-    <h2><i class="fas fa-bullhorn"></i> Announcement</h2>
+  <section id="announcements" class="section">
+    <h2><i class="fas fa-bullhorn"></i> Announcements</h2>
     <p>
       We are pleased to announce the Shared Task on <strong>XYZ</strong> as part of ABC Conference 2025. The
       goal of this task is to benchmark state-of-the-art methods for XYZ using real-world annotated datasets.
@@ -362,8 +345,8 @@
   <section id="task" class="section">
     <h2><i class="fas fa-tasks"></i> Task Details</h2>
     <p>
-      The task involves identifying XYZ patterns in multilingual texts. Participants are expected to build systems capable
-      of handling diverse linguistic features. The sub-tasks include:
+      The task involves identifying XYZ patterns in multilingual texts. Participants are expected to build systems
+      capable of handling diverse linguistic features. The sub-tasks include:
     </p>
     <ul>
       <li>Subtask 1: Classification of ABC</li>
@@ -374,12 +357,30 @@
   <section id="timeline" class="section">
     <h2><i class="fas fa-calendar-alt"></i> Timeline</h2>
     <table class="timeline">
-      <tr><th>Event</th><th>Date</th></tr>
-      <tr><td>Task Announcement</td><td>Jan 15, 2025</td></tr>
-      <tr><td>Data Release</td><td>Feb 1, 2025</td></tr>
-      <tr><td>Submission Deadline</td><td>Apr 30, 2025</td></tr>
-      <tr><td>Results Notification</td><td>May 15, 2025</td></tr>
-      <tr><td>Paper Submission</td><td>June 1, 2025</td></tr>
+      <tr>
+        <th>Event</th>
+        <th>Date</th>
+      </tr>
+      <tr>
+        <td>Task Announcement</td>
+        <td>Jan 15, 2025</td>
+      </tr>
+      <tr>
+        <td>Data Release</td>
+        <td>Feb 1, 2025</td>
+      </tr>
+      <tr>
+        <td>Submission Deadline</td>
+        <td>Apr 30, 2025</td>
+      </tr>
+      <tr>
+        <td>Results Notification</td>
+        <td>May 15, 2025</td>
+      </tr>
+      <tr>
+        <td>Paper Submission</td>
+        <td>June 1, 2025</td>
+      </tr>
     </table>
   </section>
 
@@ -401,7 +402,7 @@
     <p>Systems will be evaluated using the following metrics:</p>
     <ul>
       <li>Accuracy</li>
-      <li>F1-Score (macro & micro)</li>
+      <li>F1-Score (macro &amp; micro)</li>
       <li>Precision and Recall</li>
     </ul>
     <p>A leaderboard will be maintained throughout the competition.</p>
@@ -450,25 +451,29 @@
   </footer>
 
   <script>
-    // Hamburger toggle
-    const hamburger = document.getElementById('hamburger');
-    const navList = document.getElementById('nav-list');
+    // Highlight active nav link on scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
 
-    hamburger.addEventListener('click', () => {
-      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-      hamburger.setAttribute('aria-expanded', String(!expanded));
-      navList.classList.toggle('mobile-open');
-    });
+    function onScroll() {
+      let scrollPos = window.scrollY + 220; // Offset for sticky header and margin
 
-    // Optional: Close menu when link clicked (mobile)
-    navList.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        if (navList.classList.contains('mobile-open')) {
-          navList.classList.remove('mobile-open');
-          hamburger.setAttribute('aria-expanded', 'false');
+      sections.forEach((section) => {
+        if (
+          scrollPos >= section.offsetTop &&
+          scrollPos < section.offsetTop + section.offsetHeight
+        ) {
+          navLinks.forEach((link) => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + section.id) {
+              link.classList.add('active');
+            }
+          });
         }
       });
-    });
+    }
+
+    window.addEventListener('scroll', onScroll);
   </script>
 </body>
 </html>
