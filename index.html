@@ -66,15 +66,16 @@
       font-weight: bold;
     }
 
+    /* Navigation Styles */
     nav {
       background-color: #f4f4f4;
-      padding: 10px 40px;
       border-bottom: 1px solid #ddd;
+      padding: 10px 40px;
       display: flex;
       gap: 20px;
+      justify-content: flex-start; /* left align on desktop */
       overflow-x: auto;
       white-space: nowrap;
-      justify-content: flex-start; /* Left align for desktop */
       scrollbar-width: thin;
       scrollbar-color: #ccc transparent;
     }
@@ -96,7 +97,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      flex-shrink: 0; /* Prevent shrinking */
+      flex-shrink: 0;
       border-bottom: 3px solid transparent;
       transition: border-color 0.3s ease;
     }
@@ -111,6 +112,19 @@
       border-bottom: 3px solid #004080;
     }
 
+    /* Hamburger button */
+    .hamburger {
+      display: none;
+      font-size: 1.8em;
+      cursor: pointer;
+      color: #004080;
+      background: none;
+      border: none;
+      padding: 0;
+      margin-left: 10px;
+    }
+
+    /* Sections */
     .section {
       padding: 40px;
       max-width: 900px;
@@ -155,7 +169,7 @@
       object-fit: cover;
       border: 1px solid #ddd;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      border-radius: 0; /* rectangular */
+      border-radius: 0;
     }
 
     .person p {
@@ -228,14 +242,32 @@
       }
 
       nav {
-        padding: 10px 20px;
-        justify-content: center;
-        gap: 10px;
+        padding: 0 20px;
+        gap: 0;
+        flex-direction: column;
+        display: none; /* Hide nav by default on mobile */
+        width: 100%;
+        border-bottom: none;
+      }
+
+      nav.show {
+        display: flex;
       }
 
       nav a {
-        font-size: 0.9em;
-        padding: 6px 8px;
+        padding: 10px 0;
+        border-bottom: 1px solid #ddd;
+        border-left: 4px solid transparent;
+        width: 100%;
+      }
+
+      nav a.active {
+        border-left-color: #004080;
+        border-bottom: none;
+      }
+
+      .hamburger {
+        display: block;
       }
 
       .people-grid {
@@ -248,23 +280,8 @@
     }
 
     @media (max-width: 480px) {
-      nav {
-        flex-direction: column;
-        gap: 8px;
-        padding: 10px 15px;
-        align-items: flex-start;
-      }
-
       nav a {
-        display: block;
-        margin: 5px 0;
-        padding: 10px 0;
-        border-bottom: none;
-        border-left: 4px solid transparent;
-      }
-
-      nav a.active {
-        border-left-color: #004080;
+        padding-left: 15px;
       }
 
       .header-flex img {
@@ -295,6 +312,9 @@
         <img src="indoml.png" alt="IndoML Logo" />
         <h1>Shared Task 2025: Understanding XYZ</h1>
         <img src="datathone_logo.svg" alt="DataThon Logo" />
+        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
     </header>
 
@@ -302,7 +322,7 @@
       💰 Exciting Prize Alert: Win a total of ₹2,00,000 INR in cash prizes!
     </div>
 
-    <nav>
+    <nav id="main-nav">
       <a href="#organizers" class="active"><i class="fas fa-users"></i> Organizers</a>
       <a href="#announcements"><i class="fas fa-bullhorn"></i> Announcements</a>
       <a href="#task"><i class="fas fa-tasks"></i> Task Details</a>
@@ -474,6 +494,16 @@
     }
 
     window.addEventListener('scroll', onScroll);
+
+    // Hamburger toggle functionality
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.getElementById('main-nav');
+
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+      hamburger.setAttribute('aria-expanded', !expanded);
+      nav.classList.toggle('show');
+    });
   </script>
 </body>
 </html>
