@@ -76,6 +76,10 @@
       font-weight: bold;
     }
 
+    nav a:hover {
+      text-decoration: underline;
+    }
+
     .section {
       padding: 40px;
       max-width: 900px;
@@ -95,20 +99,43 @@
       margin-right: 10px;
     }
 
+    /* Organizers section styling */
     .people-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 30px;
+      text-align: center;
     }
 
     .person {
-      width: 150px;
-      text-align: center;
+      width: 180px;
+      font-family: 'Roboto', sans-serif;
     }
 
     .person img {
       width: 100%;
-      border-radius: 50%;
+      height: 240px;
+      object-fit: cover;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      border-radius: 0; /* rectangular */
+    }
+
+    .person p {
+      margin-top: 12px;
+      font-size: 1em;
+      font-weight: 500;
+      color: #222;
+      line-height: 1.4;
+    }
+
+    .person span {
+      display: block;
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 4px;
     }
 
     table.timeline {
@@ -119,12 +146,15 @@
     table.timeline td, table.timeline th {
       border: 1px solid #ccc;
       padding: 10px;
+      text-align: left;
     }
 
     pre {
       background-color: #f9f9f9;
       padding: 10px;
       overflow-x: auto;
+      border-radius: 4px;
+      border: 1px solid #ddd;
     }
 
     footer {
@@ -136,41 +166,52 @@
       margin-top: 40px;
     }
 
-     .people-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-  align-items: flex-start;
-  text-align: center;
-}
+    /* Responsive Styling */
+    @media (max-width: 768px) {
+      .header-flex {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
 
-.person {
-  width: 180px;
-}
+      nav {
+        padding: 10px 20px;
+      }
 
-.person img {
-  width: 100%;
-  height: auto;
-  border-radius: 0; /* No circle */
-  object-fit: cover;
-  border: 1px solid #ccc;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-}
+      .people-grid {
+        gap: 30px;
+      }
 
-.person p {
-  margin-top: 10px;
-  font-size: 1em;
-  line-height: 1.4;
-}
+      .person {
+        width: 45%;
+      }
+    }
 
-.person span {
-  display: block;
-  font-size: 0.9em;
-  color: #666;
-  margin-top: 3px;
-}
-    
+    @media (max-width: 480px) {
+      .header-flex img {
+        height: 40px;
+      }
+
+      .header-flex h1 {
+        font-size: 1.4em;
+      }
+
+      nav a {
+        display: block;
+        margin: 5px 0;
+      }
+
+      .person {
+        width: 100%;
+      }
+
+      .person img {
+        height: auto;
+      }
+
+      .section {
+        padding: 25px 15px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -179,9 +220,9 @@
 <div id="sticky-header">
   <header>
     <div class="header-flex">
-      <img src="indoml.png" alt="IndoML Logo">
+      <img src="indoml.png" alt="IndoML Logo" />
       <h1>Shared Task 2025: Understanding XYZ</h1>
-      <img src="datathon_logo.png" alt="DataThon Logo">
+      <img src="datathon_logo.png" alt="DataThon Logo" />
     </div>
   </header>
 
@@ -196,6 +237,7 @@
     <a href="#timeline"><i class="fas fa-calendar-alt"></i> Timeline</a>
     <a href="#dataset"><i class="fas fa-database"></i> Dataset</a>
     <a href="#evaluation"><i class="fas fa-chart-line"></i> Evaluation</a>
+    <a href="#prizes"><i class="fas fa-trophy"></i> Prizes</a>
     <a href="#volunteers"><i class="fas fa-hand-holding-heart"></i> Volunteers</a>
     <a href="#citation"><i class="fas fa-book"></i> Citation</a>
   </nav>
@@ -268,6 +310,17 @@
     <li>Precision and Recall</li>
   </ul>
   <p>A leaderboard will be maintained throughout the competition.</p>
+</section>
+
+<section id="prizes" class="section">
+  <h2><i class="fas fa-trophy"></i> Prizes</h2>
+  <p>We are excited to announce the following prizes for the Shared Task:</p>
+  <ul>
+    <li><strong>1st Prize:</strong> ₹1,00,000 INR</li>
+    <li><strong>2nd Prize:</strong> ₹60,000 INR</li>
+    <li><strong>3rd Prize:</strong> ₹40,000 INR</li>
+  </ul>
+  <p>Winners will be announced during the closing ceremony of ABC Conference 2025.</p>
 </section>
 
 <section id="volunteers" class="section">
