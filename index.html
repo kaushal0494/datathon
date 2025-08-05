@@ -2,14 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shared Task 2025 - Understanding XYZ</title>
-  <meta name="description" content="Official page for the 2025 Shared Task on XYZ">
-  <meta name="author" content="Shared Task Organizers">
+  <meta name="description" content="Official page for the 2025 Shared Task on XYZ" />
+  <meta name="author" content="Shared Task Organizers" />
 
   <!-- Fonts and Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    rel="stylesheet"
+  />
 
   <style>
     body {
@@ -26,7 +29,7 @@
     #sticky-header {
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 1100;
       background-color: white;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     }
@@ -41,6 +44,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: nowrap;
     }
 
     .header-flex h1 {
@@ -48,10 +52,12 @@
       text-align: center;
       font-size: 2em;
       margin: 0;
+      min-width: 0;
     }
 
     .header-flex img {
       height: 60px;
+      flex-shrink: 0;
     }
 
     .prize-banner {
@@ -65,26 +71,57 @@
 
     nav {
       background-color: #f4f4f4;
-      padding: 10px 40px;
       border-bottom: 1px solid #ddd;
     }
 
-    nav a {
-      margin-right: 15px;
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 10px 40px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      /* no special style */
+    }
+
+    nav ul li a {
       color: #004080;
       text-decoration: none;
       font-weight: bold;
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: background-color 0.2s;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    nav ul li a:hover,
+    nav ul li a:focus {
+      background-color: #004080;
+      color: white;
+      outline: none;
     }
 
+    /* Hamburger Menu - Hidden on desktop */
+    #hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 28px;
+      color: #004080;
+      background: none;
+      border: none;
+      padding: 10px 20px;
+    }
+
+    /* Sections */
     .section {
-      padding: 40px;
+      padding: 40px 20px 60px;
       max-width: 900px;
       margin: auto;
-      scroll-margin-top: 210px; /* full height of sticky header */
+      scroll-margin-top: 180px; /* header + prize + nav height */
     }
 
     .section h2 {
@@ -99,7 +136,7 @@
       margin-right: 10px;
     }
 
-    /* Organizers section styling */
+    /* Organizers */
     .people-grid {
       display: flex;
       flex-wrap: wrap;
@@ -120,7 +157,7 @@
       object-fit: cover;
       border: 1px solid #ddd;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      border-radius: 0; /* rectangular */
+      border-radius: 0;
     }
 
     .person p {
@@ -143,7 +180,8 @@
       border-collapse: collapse;
     }
 
-    table.timeline td, table.timeline th {
+    table.timeline td,
+    table.timeline th {
       border: 1px solid #ccc;
       padding: 10px;
       text-align: left;
@@ -155,6 +193,7 @@
       overflow-x: auto;
       border-radius: 4px;
       border: 1px solid #ddd;
+      font-family: monospace;
     }
 
     footer {
@@ -167,39 +206,72 @@
     }
 
     /* Responsive Styling */
+
     @media (max-width: 768px) {
       .header-flex {
         flex-wrap: wrap;
         gap: 15px;
+        justify-content: center;
       }
 
-      nav {
-        padding: 10px 20px;
+      .header-flex h1 {
+        order: 3;
+        width: 100%;
+        text-align: center;
+        font-size: 1.6em;
       }
 
-      .people-grid {
-        gap: 30px;
+      .header-flex img {
+        order: 1;
+        flex-shrink: 0;
+        height: 50px;
       }
 
-      .person {
-        width: 45%;
+      .prize-banner {
+        font-size: 1.1em;
+        padding: 12px 10px;
+      }
+
+      /* Hide desktop nav */
+      nav ul {
+        display: none;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+      }
+
+      /* Show hamburger */
+      #hamburger {
+        display: block;
+        position: relative;
+        z-index: 1200;
+        margin: 0 40px 10px;
+      }
+
+      /* Mobile nav dropdown */
+      nav ul.mobile-open {
+        display: flex;
+        background-color: #f4f4f4;
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 40px 20px;
+        border-bottom: 1px solid #ddd;
+        animation: fadeInDown 0.3s ease forwards;
+      }
+
+      nav ul.mobile-open li {
+        margin: 5px 0;
+      }
+
+      nav ul.mobile-open li a {
+        display: block;
+        padding: 12px 15px;
+        font-size: 1.2em;
+        border-radius: 6px;
       }
     }
 
     @media (max-width: 480px) {
-      .header-flex img {
-        height: 40px;
-      }
-
-      .header-flex h1 {
-        font-size: 1.4em;
-      }
-
-      nav a {
-        display: block;
-        margin: 5px 0;
-      }
-
       .person {
         width: 100%;
       }
@@ -209,150 +281,194 @@
       }
 
       .section {
-        padding: 25px 15px;
+        padding: 25px 15px 50px;
+        scroll-margin-top: 150px;
+      }
+    }
+
+    /* Animation */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
   </style>
 </head>
 <body>
+  <!-- Sticky Header -->
+  <div id="sticky-header">
+    <header>
+      <div class="header-flex">
+        <img src="indoml.png" alt="IndoML Logo" />
+        <h1>Shared Task 2025: Understanding XYZ</h1>
+        <img src="datathone_logo.svg" alt="DataThon Logo" />
+      </div>
+    </header>
 
-<!-- Sticky Header -->
-<div id="sticky-header">
-  <header>
-    <div class="header-flex">
-      <img src="indoml.png" alt="IndoML Logo" />
-      <h1>Shared Task 2025: Understanding XYZ</h1>
-      <img src="datathone_logo.svg" alt="DataThon Logo" />
+    <div class="prize-banner">
+      💰 Exciting Prize Alert: Win a total of ₹2,00,000 INR in cash prizes!
     </div>
-  </header>
 
-  <div class="prize-banner">
-    💰 Exciting Prize Alert: Win a total of ₹2,00,000 INR in cash prizes!
+    <nav>
+      <button id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul id="nav-list">
+        <li><a href="#organizers"><i class="fas fa-users"></i> Organizers</a></li>
+        <li><a href="#announcement"><i class="fas fa-bullhorn"></i> Announcement</a></li>
+        <li><a href="#task"><i class="fas fa-tasks"></i> Task Details</a></li>
+        <li><a href="#timeline"><i class="fas fa-calendar-alt"></i> Timeline</a></li>
+        <li><a href="#dataset"><i class="fas fa-database"></i> Dataset</a></li>
+        <li><a href="#evaluation"><i class="fas fa-chart-line"></i> Evaluation</a></li>
+        <li><a href="#prizes"><i class="fas fa-trophy"></i> Prizes</a></li>
+        <li><a href="#volunteers"><i class="fas fa-hand-holding-heart"></i> Volunteers</a></li>
+        <li><a href="#citation"><i class="fas fa-book"></i> Citation</a></li>
+      </ul>
+    </nav>
   </div>
 
-  <nav>
-    <a href="#organizers"><i class="fas fa-users"></i> Organizers</a>
-    <a href="#announcement"><i class="fas fa-bullhorn"></i> Announcement</a>
-    <a href="#task"><i class="fas fa-tasks"></i> Task Details</a>
-    <a href="#timeline"><i class="fas fa-calendar-alt"></i> Timeline</a>
-    <a href="#dataset"><i class="fas fa-database"></i> Dataset</a>
-    <a href="#evaluation"><i class="fas fa-chart-line"></i> Evaluation</a>
-    <a href="#prizes"><i class="fas fa-trophy"></i> Prizes</a>
-    <a href="#volunteers"><i class="fas fa-hand-holding-heart"></i> Volunteers</a>
-    <a href="#citation"><i class="fas fa-book"></i> Citation</a>
-  </nav>
-</div>
-
-<!-- Sections -->
-<section id="organizers" class="section">
-  <h2><i class="fas fa-users"></i> Organizers</h2>
-  <div class="people-grid">
-    <div class="person">
-      <img src="kaushalkumar.jpeg" alt="Kaushal Kumar Maurya" />
-      <p><strong>Kaushal Kumar Maurya</strong><br><span>MBZUAI</span></p>
+  <!-- Sections -->
+  <section id="organizers" class="section">
+    <h2><i class="fas fa-users"></i> Organizers</h2>
+    <div class="people-grid">
+      <div class="person">
+        <img src="kaushalkumar.jpeg" alt="Kaushal Kumar Maurya" />
+        <p><strong>Kaushal Kumar Maurya</strong><br /><span>MBZUAI</span></p>
+      </div>
+      <div class="person">
+        <img src="mahesh.jpg" alt="Mahesh Mohan" />
+        <p><strong>Mahesh Mohan</strong><br /><span>IIT Kharagpur</span></p>
+      </div>
+      <div class="person">
+        <img src="aritra-mukherjee.jpg" alt="Aritra Mukherjee" />
+        <p><strong>Aritra Mukherjee</strong><br /><span>BITS Pilani, Hyderabad Campus</span></p>
+      </div>
     </div>
-    <div class="person">
-      <img src="mahesh.jpg" alt="Mahesh Mohan" />
-      <p><strong>Mahesh Mohan</strong><br><span>IIT Kharagpur</span></p>
-    </div>
-    <div class="person">
-      <img src="aritra-mukherjee.jpg" alt="Aritra Mukherjee" />
-      <p><strong>Aritra Mukherjee</strong><br><span>BITS Pilani, Hyderabad Campus</span></p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="announcement" class="section">
-  <h2><i class="fas fa-bullhorn"></i> Announcement</h2>
-  <p>We are pleased to announce the Shared Task on <strong>XYZ</strong> as part of ABC Conference 2025. The goal of this task is to benchmark state-of-the-art methods for XYZ using real-world annotated datasets.</p>
-</section>
+  <section id="announcement" class="section">
+    <h2><i class="fas fa-bullhorn"></i> Announcement</h2>
+    <p>
+      We are pleased to announce the Shared Task on <strong>XYZ</strong> as part of ABC Conference 2025. The
+      goal of this task is to benchmark state-of-the-art methods for XYZ using real-world annotated datasets.
+    </p>
+  </section>
 
-<section id="task" class="section">
-  <h2><i class="fas fa-tasks"></i> Task Details</h2>
-  <p>The task involves identifying XYZ patterns in multilingual texts. Participants are expected to build systems capable of handling diverse linguistic features. The sub-tasks include:</p>
-  <ul>
-    <li>Subtask 1: Classification of ABC</li>
-    <li>Subtask 2: Extraction of DEF</li>
-  </ul>
-</section>
+  <section id="task" class="section">
+    <h2><i class="fas fa-tasks"></i> Task Details</h2>
+    <p>
+      The task involves identifying XYZ patterns in multilingual texts. Participants are expected to build systems capable
+      of handling diverse linguistic features. The sub-tasks include:
+    </p>
+    <ul>
+      <li>Subtask 1: Classification of ABC</li>
+      <li>Subtask 2: Extraction of DEF</li>
+    </ul>
+  </section>
 
-<section id="timeline" class="section">
-  <h2><i class="fas fa-calendar-alt"></i> Timeline</h2>
-  <table class="timeline">
-    <tr><th>Event</th><th>Date</th></tr>
-    <tr><td>Task Announcement</td><td>Jan 15, 2025</td></tr>
-    <tr><td>Data Release</td><td>Feb 1, 2025</td></tr>
-    <tr><td>Submission Deadline</td><td>Apr 30, 2025</td></tr>
-    <tr><td>Results Notification</td><td>May 15, 2025</td></tr>
-    <tr><td>Paper Submission</td><td>June 1, 2025</td></tr>
-  </table>
-</section>
+  <section id="timeline" class="section">
+    <h2><i class="fas fa-calendar-alt"></i> Timeline</h2>
+    <table class="timeline">
+      <tr><th>Event</th><th>Date</th></tr>
+      <tr><td>Task Announcement</td><td>Jan 15, 2025</td></tr>
+      <tr><td>Data Release</td><td>Feb 1, 2025</td></tr>
+      <tr><td>Submission Deadline</td><td>Apr 30, 2025</td></tr>
+      <tr><td>Results Notification</td><td>May 15, 2025</td></tr>
+      <tr><td>Paper Submission</td><td>June 1, 2025</td></tr>
+    </table>
+  </section>
 
-<section id="dataset" class="section">
-  <h2><i class="fas fa-database"></i> Example Datasets</h2>
-  <p>Sample datasets will be provided in JSON and CSV formats. Below are a few examples:</p>
-  <pre>
+  <section id="dataset" class="section">
+    <h2><i class="fas fa-database"></i> Example Datasets</h2>
+    <p>Sample datasets will be provided in JSON and CSV formats. Below are a few examples:</p>
+    <pre>
 {
   "id": "001",
   "text": "The quick brown fox jumps over the lazy dog.",
   "label": "Positive"
 }
-  </pre>
-  <p>More examples and full data will be available on the <a href="#">GitHub repository</a>.</p>
-</section>
+    </pre>
+    <p>More examples and full data will be available on the <a href="#">GitHub repository</a>.</p>
+  </section>
 
-<section id="evaluation" class="section">
-  <h2><i class="fas fa-chart-line"></i> Evaluation</h2>
-  <p>Systems will be evaluated using the following metrics:</p>
-  <ul>
-    <li>Accuracy</li>
-    <li>F1-Score (macro & micro)</li>
-    <li>Precision and Recall</li>
-  </ul>
-  <p>A leaderboard will be maintained throughout the competition.</p>
-</section>
+  <section id="evaluation" class="section">
+    <h2><i class="fas fa-chart-line"></i> Evaluation</h2>
+    <p>Systems will be evaluated using the following metrics:</p>
+    <ul>
+      <li>Accuracy</li>
+      <li>F1-Score (macro & micro)</li>
+      <li>Precision and Recall</li>
+    </ul>
+    <p>A leaderboard will be maintained throughout the competition.</p>
+  </section>
 
-<section id="prizes" class="section">
-  <h2><i class="fas fa-trophy"></i> Prizes</h2>
-  <p>We are excited to announce the following prizes for the Shared Task:</p>
-  <ul>
-    <li><strong>1st Prize:</strong> ₹1,00,000 INR</li>
-    <li><strong>2nd Prize:</strong> ₹60,000 INR</li>
-    <li><strong>3rd Prize:</strong> ₹40,000 INR</li>
-  </ul>
-  <p>Winners will be announced during the closing ceremony of ABC Conference 2025.</p>
-</section>
+  <section id="prizes" class="section">
+    <h2><i class="fas fa-trophy"></i> Prizes</h2>
+    <p>We are excited to announce the following prizes for the Shared Task:</p>
+    <ul>
+      <li><strong>1st Prize:</strong> ₹1,00,000 INR</li>
+      <li><strong>2nd Prize:</strong> ₹60,000 INR</li>
+      <li><strong>3rd Prize:</strong> ₹40,000 INR</li>
+    </ul>
+    <p>Winners will be announced during the closing ceremony of ABC Conference 2025.</p>
+  </section>
 
-<section id="volunteers" class="section">
-  <h2><i class="fas fa-hand-holding-heart"></i> Volunteers</h2>
-  <div class="people-grid">
-    <div class="person">
-      <img src="vol1.jpg" alt="Jane Doe" />
-      <p>Jane Doe</p>
+  <section id="volunteers" class="section">
+    <h2><i class="fas fa-hand-holding-heart"></i> Volunteers</h2>
+    <div class="people-grid">
+      <div class="person">
+        <img src="vol1.jpg" alt="Jane Doe" />
+        <p>Jane Doe</p>
+      </div>
+      <div class="person">
+        <img src="vol2.jpg" alt="John Smith" />
+        <p>John Smith</p>
+      </div>
     </div>
-    <div class="person">
-      <img src="vol2.jpg" alt="John Smith" />
-      <p>John Smith</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="citation" class="section">
-  <h2><i class="fas fa-book"></i> Citation</h2>
-  <p>Please cite the shared task as follows:</p>
-  <pre>
+  <section id="citation" class="section">
+    <h2><i class="fas fa-book"></i> Citation</h2>
+    <p>Please cite the shared task as follows:</p>
+    <pre>
 @inproceedings{sharedtask2025,
   title={Shared Task on XYZ},
   author={Smith, Alice and Kumar, Bob},
   booktitle={Proceedings of ABC 2025},
   year={2025}
 }
-  </pre>
-</section>
+    </pre>
+  </section>
 
-<footer>
-  &copy; 2025 Shared Task on XYZ. All rights reserved.
-</footer>
+  <footer>
+    &copy; 2025 Shared Task on XYZ. All rights reserved.
+  </footer>
 
+  <script>
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const navList = document.getElementById('nav-list');
+
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!expanded));
+      navList.classList.toggle('mobile-open');
+    });
+
+    // Optional: Close menu when link clicked (mobile)
+    navList.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (navList.classList.contains('mobile-open')) {
+          navList.classList.remove('mobile-open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
