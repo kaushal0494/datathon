@@ -22,6 +22,7 @@
       scroll-behavior: smooth;
     }
 
+    /* === Sticky elements === */
     header {
       background-color: #004080;
       color: white;
@@ -29,6 +30,54 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+    }
+
+    .prize-banner {
+      background-color: #ffcc00;
+      color: #000;
+      text-align: center;
+      padding: 15px;
+      font-size: 1.25em;
+      font-weight: bold;
+      position: sticky;
+      top: 80px; /* Height of header */
+      z-index: 999;
+    }
+
+    nav {
+      background-color: #f4f4f4;
+      padding: 10px 40px;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 125px; /* header (80px) + prize (45px) */
+      z-index: 998;
+    }
+
+    nav a {
+      margin-right: 15px;
+      color: #004080;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* === Section content === */
+    .section {
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+      scroll-margin-top: 190px; /* total sticky height: 80 + 45 + nav ~65 */
+    }
+
+    .section h2 {
+      border-bottom: 2px solid #004080;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+    }
+
+    .section h2 i {
+      color: #004080;
+      margin-right: 10px;
     }
 
     .header-flex {
@@ -46,50 +95,6 @@
 
     .header-flex img {
       height: 60px;
-    }
-
-    .prize-banner {
-      background-color: #ffcc00;
-      color: #000;
-      text-align: center;
-      padding: 15px;
-      font-size: 1.25em;
-      font-weight: bold;
-      position: sticky;
-      top: 80px; /* adjust based on actual header height */
-      z-index: 999;
-    }
-
-    nav {
-      background-color: #f4f4f4;
-      padding: 10px 40px;
-      border-bottom: 1px solid #ddd;
-    }
-
-    nav a {
-      margin-right: 15px;
-      color: #004080;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .section {
-      padding: 40px;
-      max-width: 900px;
-      margin: auto;
-      scroll-margin-top: 160px; /* header + banner height */
-    }
-
-    .section h2 {
-      border-bottom: 2px solid #004080;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-      font-size: 1.5em;
-    }
-
-    .section h2 i {
-      color: #004080;
-      margin-right: 10px;
     }
 
     .people-grid {
@@ -170,7 +175,6 @@
       <img src="org2.jpg" alt="Prof. Bob Kumar" />
       <p>Prof. Bob Kumar</p>
     </div>
-    <!-- Add more organizers -->
   </div>
 </section>
 
@@ -235,7 +239,6 @@
       <img src="vol2.jpg" alt="John Smith" />
       <p>John Smith</p>
     </div>
-    <!-- Add more volunteers -->
   </div>
 </section>
 
