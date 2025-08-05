@@ -12,7 +12,7 @@ View example: https://zirafa.github.io/simple-website-template/
 ## How does this work?
 This website template uses CSS & JS to hide and show different parts of index.html and uses Github Pages to render the website from the gh-pages branch.
 
-## Things to try
+## Things to tr
 - Edit index.html and change the title of the page
 - Edit index.html and change the content displayed in home, about, and contact.
 - Edit index.html and change the content in the footer region.
