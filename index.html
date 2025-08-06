@@ -305,6 +305,21 @@
   color: #004080; /* deep professional blue */
   font-weight: bold;
 }
+    .box {
+  border: 1px solid #d1d1d1;
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+}
+
+.label-box {
+  border-left: 4px solid #004080;
+  padding-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
   </style>
 </head>
 <body>
@@ -413,7 +428,7 @@
 
 <section id="task" class="section">
   <h2><i class="fas fa-tasks"></i> Task Details: Evaluating LLM-Powered AI Tutors</h2>
-  
+
   <h3>Motivation</h3>
   <p>
     With the rapid advancement of Large Language Models (LLMs), AI-powered tutoring systems are emerging as promising tools 
@@ -431,30 +446,52 @@
 
   <h3>Track Details</h3>
   <p>
-    The shared task comprises two tracks. In both tracks, participants will analyze AI tutor responses and assign appropriate 
-    evaluation labels. Detailed descriptions are as follows:
+    The shared task consists of two tracks. In each track, participants will evaluate AI tutor responses using specific labels, 
+    defined below:
   </p>
-  
-  <ul>
-    <li>
-      <strong>Track 1: Mistake Identification</strong><br />
-      Determine whether the AI tutor has correctly identified a mistake in the student’s input.<br />
-      <em>Expected labels:</em> <strong>Yes</strong>, <strong>No</strong>, <strong>To some extent</strong>
-    </li>
-    <br />
-    <li>
-      <strong>Track 2: Providing Guidance</strong><br />
-      Assess whether the AI tutor has offered helpful and pedagogically sound guidance in response to the identified mistake.<br />
-      <em>Expected labels:</em> <strong>Yes</strong>, <strong>No</strong>, <strong>To some extent</strong>
-    </li>
-  </ul>
+
+  <!-- Track 1 -->
+  <div class="box track-box">
+    <h4>Track 1: Mistake Identification</h4>
+    <p>
+      Determine whether the AI tutor has correctly identified a mistake in the student’s input.
+    </p>
+
+    <div class="label-box">
+      <strong>Yes:</strong> The tutor correctly identifies and explicitly addresses the student's mistake.
+    </div>
+    <div class="label-box">
+      <strong>No:</strong> The tutor fails to identify or completely misses the mistake in the student’s input.
+    </div>
+    <div class="label-box">
+      <strong>To some extent:</strong> The tutor partially identifies the issue, but the response is incomplete or imprecise.
+    </div>
+  </div>
+
+  <!-- Track 2 -->
+  <div class="box track-box">
+    <h4>Track 2: Providing Guidance</h4>
+    <p>
+      Assess whether the AI tutor has provided meaningful and pedagogically sound guidance in response to the student’s error.
+    </p>
+
+    <div class="label-box">
+      <strong>Yes:</strong> The tutor offers clear, helpful, and contextually appropriate guidance that facilitates learning.
+    </div>
+    <div class="label-box">
+      <strong>No:</strong> The guidance is missing, misleading, or irrelevant to the student's input.
+    </div>
+    <div class="label-box">
+      <strong>To some extent:</strong> The tutor provides some guidance, but it lacks clarity, depth, or completeness.
+    </div>
+  </div>
 
   <p>
-    Participants are encouraged to consider linguistic diversity, educational context, and domain-specific challenges 
-    while designing their models. The task seeks to promote rigorous evaluation practices and foster innovation 
-    in building trustworthy and effective AI tutors.
+    Participants are encouraged to take into account linguistic variation, pedagogical quality, and contextual relevance while developing their systems. 
+    The task aims to foster robust evaluation and promote the design of trustworthy and effective AI tutors across languages and learning settings.
   </p>
 </section>
+
 
 
   <section id="dataset" class="section">
