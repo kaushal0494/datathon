@@ -434,71 +434,53 @@
 </section>
 
 <section id="task" class="section">
-  <h2 class="dark-brown"><i class="fas fa-tasks"></i> Task Details: Evaluating LLM-Powered AI Tutors</h2>
+  <h2 class="dark-brown"><i class="fas fa-tasks"></i> Task Description: Evaluating LLM-Powered AI Tutors</h2>
 
-  <h3 class="dark-brown">Motivation</h3>
+  <h3 class="dark-brown">Motivation and Objective</h3>
   <p>
-    With the rapid advancement of Large Language Models (LLMs), AI-powered tutoring systems are emerging as promising tools 
-    for delivering scalable and personalized education. Despite this progress, their pedagogical effectiveness—particularly in multilingual 
-    and diverse educational settings—remains an open research challenge. This shared task aims to systematically evaluate the instructional 
-    capabilities of LLMs, focusing on their ability to identify learner mistakes and provide effective guidance.
+    The rapid development of Large Language Models (LLMs) has created new opportunities for scalable and personalized AI-driven education. 
+    With their growing integration in educational applications, AI tutors are increasingly supporting student learning in subjects such as mathematics. 
+    While these systems can generate fluent and context-aware responses, their <strong>pedagogical effectiveness</strong>—the ability to correctly 
+    identify student mistakes and provide meaningful guidance—remains underexplored. 
+    Building on the work of Maurya et&nbsp;al. (2025) and the BEA Shared Task (Kochmar et&nbsp;al., 2025), this datathon invites the community to develop 
+    models that evaluate the meta-reasoning capabilities of AI tutor responses, focusing on mistake identification and pedagogically sound guidance.
   </p>
 
-  <h3 class="dark-brown">Objective</h3>
+  <h3 class="dark-brown">Task Overview</h3>
   <p>
-    This task focuses on evaluating educational dialogues between an AI tutor and a student, specifically in the context of mathematics learning. 
-    The conversations are centered around student mistakes or points of confusion, with the tutor expected to respond in a way that effectively 
-    remediates these issues. Participants will develop models that analyze the dialogue history and assess whether the AI tutor's latest response 
-    appropriately addresses the student's error. The evaluation emphasizes pedagogical quality, such as correctness, relevance, clarity, and 
-    instructional value of the tutor’s response.
+    Participants will receive annotated educational dialogues between students and tutors, primarily in mathematics. 
+    Each dialogue ends with a student response containing a conceptual error or confusion, followed by a tutor response (human or LLM-generated). 
+    The task is to determine whether the tutor’s response is pedagogically appropriate in two aspects: identifying the student’s mistake and providing 
+    effective guidance, as defined by Maurya et&nbsp;al. (2025).
   </p>
 
-  <h3 class="dark-brown">Track Details</h3>
+  <h3 class="dark-brown">Evaluation Tracks</h3>
   <p>
-    The shared task consists of two tracks. In each track, participants will evaluate AI tutor responses using specific labels, 
-    defined below:
+    The task consists of two tracks. In each track, participants classify tutor responses into one of three labels—<strong>Yes</strong>, 
+    <strong>No</strong>, or <strong>To some extent</strong>—based on the conversation history.
   </p>
 
   <!-- Track 1 -->
   <div class="box track-box">
     <h4 class="dark-brown">Track 1: Mistake Identification</h4>
     <p>
-      Determine whether the AI tutor has correctly identified a mistake in the student’s input.
+      Determine whether the tutor response correctly identifies the mistake or misconception in the student’s input.
     </p>
-
-    <div class="label-box">
-      <strong class="dark-brown">Yes:</strong> The tutor correctly identifies and explicitly addresses the student's mistake.
-    </div>
-    <div class="label-box">
-      <strong class="dark-brown">No:</strong> The tutor fails to identify or completely misses the mistake in the student’s input.
-    </div>
-    <div class="label-box">
-      <strong class="dark-brown">To some extent:</strong> The tutor partially identifies the issue, but the response is incomplete or imprecise.
-    </div>
+    <div class="label-box"><strong class="dark-brown">Yes:</strong> Clearly and directly identifies the mistake.</div>
+    <div class="label-box"><strong class="dark-brown">No:</strong> Fails to identify or overlooks the mistake.</div>
+    <div class="label-box"><strong class="dark-brown">To some extent:</strong> Partially identifies the mistake but lacks clarity or completeness.</div>
   </div>
 
   <!-- Track 2 -->
   <div class="box track-box">
     <h4 class="dark-brown">Track 2: Providing Guidance</h4>
     <p>
-      Assess whether the AI tutor has provided meaningful and pedagogically sound guidance in response to the student’s error.
+      Assess whether the tutor offers helpful and pedagogically meaningful guidance in response to the student’s misunderstanding.
     </p>
-
-    <div class="label-box">
-      <strong class="dark-brown">Yes:</strong> The tutor offers clear, helpful, and contextually appropriate guidance that facilitates learning.
-    </div>
-    <div class="label-box">
-      <strong class="dark-brown">No:</strong> The guidance is missing, misleading, or irrelevant to the student's input.
-    </div>
-    <div class="label-box">
-      <strong class="dark-brown">To some extent:</strong> The tutor provides some guidance, but it lacks clarity, depth, or completeness.
-    </div>
+    <div class="label-box"><strong class="dark-brown">Yes:</strong> Provides clear, relevant, and educationally valuable guidance.</div>
+    <div class="label-box"><strong class="dark-brown">No:</strong> Lacks meaningful guidance or gives irrelevant/misleading feedback.</div>
+    <div class="label-box"><strong class="dark-brown">To some extent:</strong> Offers some guidance but lacks clarity, depth, or completeness.</div>
   </div>
-
-  <p>
-    Participants are encouraged to take into account linguistic variation, pedagogical quality, and contextual relevance while developing their systems. 
-    The task aims to foster robust evaluation and promote the design of trustworthy and effective AI tutors across languages and learning settings.
-  </p>
 
   <h3 class="dark-brown">Competition and Submission Guidelines</h3>
   <ol>
