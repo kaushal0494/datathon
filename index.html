@@ -439,17 +439,15 @@
   <h3 class="dark-brown">Motivation and Objective</h3>
   <p>
     The rapid development of Large Language Models (LLMs) has created new opportunities for scalable and personalized AI-driven education. 
-    With their growing integration in educational applications, AI tutors are increasingly supporting student learning in subjects such as mathematics. 
-    While these systems can generate fluent and context-aware responses, their <strong>pedagogical effectiveness</strong>—the ability to correctly 
-    identify student mistakes and provide meaningful guidance—remains underexplored. 
-    Building on the work of Maurya et&nbsp;al. (2025) and the BEA Shared Task (Kochmar et&nbsp;al., 2025), this datathon invites the community to develop 
+    With their growing integration into educational applications, AI tutors are increasingly supporting student learning in subjects such as mathematics (Macina et al., 2023; Wang et al., 2024). While these systems can generate fluent and context-aware responses, their <strong>pedagogical effectiveness</strong>—specifically the ability to correctly 
+    identify student mistakes and provide meaningful guidance—remains underexplored. Building on the work of Maurya et&nbsp;al. (2025) and the <a href="https://sig-edu.org/sharedtask/2025" target="_blank">BEA Shared Task 2025</a> (Kochmar et&nbsp;al., 2025), this datathon invites the community to develop 
     models that evaluate the meta-reasoning capabilities of AI tutor responses, focusing on mistake identification and pedagogically sound guidance.
   </p>
 
   <h3 class="dark-brown">Task Overview</h3>
   <p>
     Participants will receive annotated educational dialogues between students and tutors, primarily in mathematics. 
-    Each dialogue ends with a student response containing a conceptual error or confusion, followed by a tutor response (human or LLM-generated). 
+    For each dialogue, the last few utterances exhibit mistakes or confusion, followed by a tutor response (human- or LLM-generated). 
     The task is to determine whether the tutor’s response is pedagogically appropriate in two aspects: identifying the student’s mistake and providing 
     effective guidance, as defined by Maurya et&nbsp;al. (2025).
   </p>
@@ -457,7 +455,7 @@
   <h3 class="dark-brown">Evaluation Tracks</h3>
   <p>
     The task consists of two tracks. In each track, participants classify tutor responses into one of three labels—<strong>Yes</strong>, 
-    <strong>No</strong>, or <strong>To some extent</strong>—based on the conversation history.
+    <strong>No</strong>, or <strong>To some extent</strong>.
   </p>
 
   <!-- Track 1 -->
